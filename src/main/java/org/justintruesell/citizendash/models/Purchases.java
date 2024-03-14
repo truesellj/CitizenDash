@@ -14,5 +14,5 @@ public class Purchases {
     @Id
     private String productsFile;
     @Column(unique = true)
-    private int id;
+    private Long id;
 }

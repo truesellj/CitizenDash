@@ -15,6 +15,5 @@ public class Todo {
     @Column(unique = true)
     private String title;
     private String fileName;
-    private int id;
-
+    private Long id;
 }
