@@ -1,0 +1,88 @@
+#addButton{
+    font-size: 5em;
+    color:white;
+}
+#addButton:hover{
+    color:black;
+}
+body{
+}
+#cardContainer{
+    background-image: url("../res/TreeBase.jpg");
+    background-color: rgba(0,0,0,0.5);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10% 10% 0 0;
+    display:grid;
+    height:100vh;
+    overflow: auto;
+    padding:1%;
+    width:100vw;
+    margin-top:2%;
+    grid-template-columns: 20% 20% 20% 20%;
+    justify-content: space-around;
+}
+.card{
+    border: 1px solid rgb(250, 244, 228);
+    background-color: rgb(240, 234, 214);
+    border-radius: 5%;
+    height:50%;
+    grid-column: span 1;
+}
+.cardAdd{
+    border: 1px solid rgb(250, 244, 228);
+    background-color: rgb(240, 234, 214);
+    border-radius: 5%;
+    height:50%;
+    grid-column: span 1;
+    align-content: center;
+    text-align: center;
+    padding-top:30%;
+}
+h1{
+    font-family: 'Bungee Spice';
+    text-align: center;
+}
+.menu{
+    display:grid;
+    grid-template-columns:  14% 14% 14% 14% 14% 14% 14% ;
+}
+.menuItem{ 
+    grid-column: span 1;
+    background-color: #32481b;
+    text-align: center;
+    font-family: 'Bungee Spice';
+    padding: 10%;
+    text-decoration: none;
+}
+.menuItem:hover{
+    transform:translateY(-3px);
+}
+#mDropDownBody{
+    display:none;
+    text-decoration: none;
+    list-style-type: none;
+}
+#mDropDownHeader{
+    list-style-type: none;
+}
+#mDropDownBody, .menuItem a{
+    text-decoration: none;
+}
+#mDropDownHeader:hover #mDropDownBody{
+    display: inline-block;
+    list-style-type: none;
+}
+.menuTitle{
+    grid-column: span 3;
+    font-family: 'Bungee Spice';
+    text-align: center;
+    background-color: #32481b;
+
+}
+.menuEdgeLeft{
+    border-radius: 0 0 0 30px;
+}
+.menuEdgeRight{
+    border-radius: 0 0 30px 0;
+}

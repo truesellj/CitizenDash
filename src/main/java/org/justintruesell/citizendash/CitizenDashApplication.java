@@ -5,7 +5,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class CitizenDashApplication {
-
+    /**
+     * on the tenth commit to main branch (commit id# 60bfcf8) I was able to
+     * connect to my database in 'update' mode (I had manually already created a database,
+     * and tables were created based upon the work done here in this project thus far.
+     */
     public static void main(String[] args) {
         SpringApplication.run(CitizenDashApplication.class, args);
     }
