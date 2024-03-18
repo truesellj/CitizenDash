@@ -1,5 +1,9 @@
 package org.justintruesell.citizendash;
 
+import org.justintruesell.citizendash.models.Role;
+import org.justintruesell.citizendash.repositories.RoleRepository;
+import org.justintruesell.citizendash.services.RoleService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
