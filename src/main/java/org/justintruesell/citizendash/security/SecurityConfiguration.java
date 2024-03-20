@@ -44,15 +44,16 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests(
                         (auth) -> auth
                                 .requestMatchers("/", "/login*",
-                                        "/css/*", "/js/*", "/sign-up", "/signup-process").permitAll()
-                                .requestMatchers("/home").hasAnyRole("USER", "ADMIN")
+                                        "/css/*", "/js/*", "/sign-up", "/signup-process","/static/*","index.css","Tr*").permitAll()
+                                .requestMatchers("/index","/home").hasAnyRole("USER", "ADMIN")
                                 .anyRequest().authenticated()
                 )
 
                 .formLogin(form -> form
                         .loginPage("/login")
                         .loginProcessingUrl("/login") // should point to login page
-                        .successForwardUrl("/home") // must be in order thymeleaf security extras work
+                        .defaultSuccessUrl("/home")
+                        //.successForwardUrl("/login") // must be in order thymeleaf security extras work
                         .permitAll()
                 )
                 .logout(

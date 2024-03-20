@@ -32,7 +32,7 @@ body{
 }
 .cardAdd{
     border: 1px solid rgb(250, 244, 228);
-    background-color: rgba(78,91,49,.5);
+    background-color: rgba(78,91,49,.95);
     border-radius: 5%;
     height:50vh;
     grid-column: span 1;
@@ -41,9 +41,27 @@ body{
     padding-top:30%;
     margin-bottom:5px;
 }
+.close{
+    margin-left:95%;
+}
+.close:hover{
+    color:white;
+}
+.form-signin{
+    background-color:rgba(78,91,49,.95);
+}
 h1{
     font-family: 'Bungee Spice';
     text-align: center;
+}
+.hidden{
+    display:none;
+}
+#loginPage{
+    background-image: url("TreeBase.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color:orangered;
 }
 .menu{
     display:grid;
@@ -87,4 +105,21 @@ h1{
 }
 .menuEdgeRight{
     border-radius: 0 0 30px 0;
+}
+#menu ul {
+    background-color: rgba(78, 91, 49, .95);
+    list-style: none;
+    color: orangered;
+    width: 100px;
+}
+#menu a{
+    color:orangered;
+}
+.todo{
+    color:orangered;
+    font-weight: bolder;
+}
+.tracker{
+    color:orangered;
+    font-weight:bolder;
 }

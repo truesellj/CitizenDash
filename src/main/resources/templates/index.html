@@ -19,16 +19,32 @@
             </ul>
             </li>
         </ul>
-    </div><div class="menuTitle"><h1>Citizen Dash</h1></div><div class="menuItem"><a href="#">Settings</a></div><div class="menuItem menuEdgeRight"><a href="#">Sign-In</a></div></div>
+    </div><div class="menuTitle"><h1>Citizen Dash</h1></div><div class="menuItem"><a href="#">Settings</a></div><div class="menuItem menuEdgeRight"><a href="#">Sign-Out</a></div></div>
     <div id="cardContainer">
         <div class="cardAdd">
-            <select>
-                <option>Price Tracker</option>
-                <option>To-Do List</option>
-                <option>Search</option>
+            <select id="userChoice">
+                <option value="1">Price Tracker</option>
+                <option value="2">To-Do List</option>
+                <option value="3">Search</option>
             </select>
-            <div id="addButton" onclick="addCard()">+</div>
+            <div id="addButton" onclick="listOrTracker()">+</div>
         </div>
+        <!-- vvvvv Hidden card elements to copy w/ JavaScript vvvvvv -->
+        <div id="todo" class="cardAdd hidden">
+            <div class="close" onclick="deleteCheck(this)">X</div>
+            <ul class="todoList"></ul>
+            <form onsubmit="addToList(this.parentElement);return false">
+                Add a todo:<input class="todoList" type="text">
+                <input type="submit">
+            </form>
+        </div>
+        <div id ="tracker" class="cardAdd hidden">
+            <div class="close" onclick="deleteCheck(this)">X</div>
+            <select><option value="" disabled selected hidden>Brand</option></select>
+            <select><option value="" disabled selected hidden>Size</option></select>
+            <input placeholder="Price" title="Please enter price like 9.99, or 1.00,&#013no other symbols required.">
+        </div>
+        <!-- ^^^^^ End of hiddent card elements ^^^^^ -->
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
