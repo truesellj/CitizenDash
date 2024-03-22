@@ -6,8 +6,10 @@ import org.justintruesell.citizendash.services.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
+@ComponentScan({ "org.justintruesell.citizendash.*" })
 public class CitizenDashApplication {
     /**
      * on the tenth commit to main branch (commit id# 60bfcf8) I was able to

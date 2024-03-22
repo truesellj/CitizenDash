@@ -65,12 +65,20 @@ public class UserController {
         log.info("Login page displayed");
         return "login";
     }
+    @RequestMapping("/logout")
+    public String getLogoutPage()
+    {
+        log.info("Logout page displayed");
+        return "logout";
+    }
 
 
+    /**
     @RequestMapping("/home")
     public String getHome()
     {
         log.info("home page displayed");
         return "index";
-    }
+    } */
+
 }

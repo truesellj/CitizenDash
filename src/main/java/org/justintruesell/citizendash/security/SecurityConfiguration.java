@@ -44,7 +44,7 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests(
                         (auth) -> auth
                                 .requestMatchers("/", "/login*",
-                                        "/css/*", "/js/*", "/sign-up", "/signup-process","/static/*","index.css","Tr*").permitAll()
+                                        "/css/*", "/js/*", "/sign-up", "/signup-process","/static/*","index.css","Tr*","/logout","game*").permitAll()
                                 .requestMatchers("/index","/home").hasAnyRole("USER", "ADMIN")
                                 .anyRequest().authenticated()
                 )
@@ -60,7 +60,8 @@ public class SecurityConfiguration {
                         logout -> logout
                                 .invalidateHttpSession(true)
                                 .clearAuthentication(true)
-                                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                                .logoutSuccessUrl("/logout")
+                                //.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                                 .permitAll()
                 );
         return http.build();

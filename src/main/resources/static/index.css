@@ -31,7 +31,7 @@ body{
     margin-bottom:5px;
 }
 .cardAdd{
-    border: 1px solid rgb(250, 244, 228);
+    border: 1px solid rgb(0,0,0);
     background-color: rgba(78,91,49,.95);
     border-radius: 5%;
     height:50vh;
@@ -62,6 +62,10 @@ h1{
     background-repeat: no-repeat;
     background-size: cover;
     color:orangered;
+}
+#logout{
+    background-image: url("gameover.jpg");
+    background-size: cover;
 }
 .menu{
     display:grid;
@@ -114,6 +118,29 @@ h1{
 }
 #menu a{
     color:orangered;
+}
+#signupPage{
+    background-image: url("TreeBase.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color:orangered;
+    justify-content: center;
+}
+#signupPage form{
+    background-color: rgba(255, 69, 0 , 0.7);
+    align-content: center;
+    width:250px;
+    border-radius:30px;
+}
+#signupPage h2{
+    background-color: rgba(50,72,27,0.9);
+}
+#signupPage #submitButton{
+    background-color: #32481b;
+    border-color:black;
+}
+#signupPage form > *{
+    margin-left: 10%;
 }
 .todo{
     color:orangered;

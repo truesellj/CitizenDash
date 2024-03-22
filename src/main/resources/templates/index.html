@@ -1,3 +1,4 @@
+<!-- how to get current user email: th:text="${#authentication.getName()}" -->
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -14,12 +15,12 @@
     <div class="menu"><div class="menuItem menuEdgeLeft"><a href="#">Home</a></div><div class="menuItem">
         <ul style="padding: 0;">
             <li id="mDropDownHeader">Edit A List
-            <ul th:each="aList: ${existingLists}" id="mDropDownBody">
-                <li th:text="${aList}"><a href="#">example</a></li>
+            <ul id="mDropDownBody">
+                <li th:each="aList: ${existingLists}" th:text="${aList.getTitle()}"></li>
             </ul>
             </li>
         </ul>
-    </div><div class="menuTitle"><h1>Citizen Dash</h1></div><div class="menuItem"><a href="#">Settings</a></div><div class="menuItem menuEdgeRight"><a href="#">Sign-Out</a></div></div>
+    </div><div class="menuTitle"><h1>Citizen Dash</h1></div><div class="menuItem"><a href="#">Settings</a></div><div class="menuItem menuEdgeRight"><a href="javascript: document.logMeOut.submit()">Sign-Out</a></div></div>
     <div id="cardContainer">
         <div class="cardAdd">
             <select id="userChoice">
@@ -29,13 +30,27 @@
             </select>
             <div id="addButton" onclick="listOrTracker()">+</div>
         </div>
+
+        <!-- *********************************** -->
+        <div th:each="aList: ${existingLists}" class="cardAdd todo">
+            <div class="close" onclick="deleteCheck(this)">X</div>
+            <h3 th:text="${aList.getTitle()}"></h3>
+            <ul class="todoList">
+                <li th:text="${aList.getItemOne()}"></li>
+                <li th:text="${aList.getItemTwo()}"></li>
+                <li th:text="${aList.getItemThree()}"></li>
+            </ul>
+        </div>
+        <!-- *********************************** -->
+
         <!-- vvvvv Hidden card elements to copy w/ JavaScript vvvvvv -->
+
         <div id="todo" class="cardAdd hidden">
             <div class="close" onclick="deleteCheck(this)">X</div>
             <ul class="todoList"></ul>
             <form onsubmit="addToList(this.parentElement);return false">
                 Add a todo:<input class="todoList" type="text">
-                <input type="submit">
+                <input type="submit" value="Add to list">
             </form>
         </div>
         <div id ="tracker" class="cardAdd hidden">
@@ -46,6 +61,11 @@
         </div>
         <!-- ^^^^^ End of hiddent card elements ^^^^^ -->
     </div>
+    <!-- VVVVV Form to logout VVVVV -->
+    <form name="logMeOut" th:action="@{/logout}" method="post" th:hidden="true">
+        <input hidden type="submit" value="logout" />
+    </form>
+    <!-- ^^^^^ End of logout form ^^^^^ -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

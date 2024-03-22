@@ -30,7 +30,7 @@ function addTrackerCard(){
     //create h3 header for each list
     const title = document.createElement("h3");
     //get input from the user on what the title should be
-    title.textContent = prompt("What would you like the title of this tracker to be?:","Safeway, Amazon, etc..." );
+    title.textContent = prompt("What would you like the title of this tracker to be?:","Aldi's, Ebay, etc..." );
     aNewCard.id = (title.textContent+"tracker").toLowerCase();
     //since we're cloning from a hidden element on the page, lets remove that class
     aNewCard.classList.remove("hidden");
@@ -62,7 +62,7 @@ function addToDoListCard(){
     aNewCard.classList.add("todo");
     //just to remove unecessary styling
     aNewCard.style.setProperty("padding-top","0%");
-    aNewCard.appendChild(title);
+    aNewCard.prepend(title);
     cardDash.prepend(aNewCard);
 }
 function deleteCheck(callingElement){
@@ -70,4 +70,7 @@ function deleteCheck(callingElement){
     if(question === true){
         callingElement.parentNode.remove();
     }
+}
+function loadCurrentLists(todosByUser){
+    console.log(todosByUser);
 }
