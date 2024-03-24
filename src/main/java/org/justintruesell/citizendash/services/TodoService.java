@@ -12,4 +12,6 @@ public interface TodoService {
 
     public Todo findByTitle(String title);
 
+    public Todo save(Todo todo);
+
 }

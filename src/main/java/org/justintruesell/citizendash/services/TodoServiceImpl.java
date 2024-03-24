@@ -23,6 +23,7 @@ public class TodoServiceImpl implements TodoService{
 //        ArrayList<Todo> todos = todoRepo.findTodosByEmail(email);
 //        return todos;
 //    }
+    //gets full list of todoLists stored in database by current LOGGEDIN user
     public List<Todo> loadByOwner(String email){
         List<Todo> currentTodos = todoRepository.findByOwner(email);
         System.out.println(currentTodos);
@@ -30,7 +31,6 @@ public class TodoServiceImpl implements TodoService{
     };
 
     @Transactional
-    public Todo findByTitle(String title){
-        return todoRepository.findByTitle(title);
-    }
+    public Todo findByTitle(String title){return todoRepository.findByTitle(title);}
+    public Todo save(Todo todo){return todoRepository.save(todo);}
 }

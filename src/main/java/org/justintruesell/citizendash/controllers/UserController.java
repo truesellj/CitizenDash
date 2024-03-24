@@ -66,10 +66,16 @@ public class UserController {
         return "login";
     }
     @RequestMapping("/logout")
-    public String getLogoutPage()
-    {
+    public String getLogoutPage(){
         log.info("Logout page displayed");
         return "logout";
+    }
+    @RequestMapping("/viewAdminPage")
+    public String getAdminPage(Model model){
+
+        model.addAttribute("allUsers", userDetailsService.getAllUsers());
+        log.info("Admin page displayed");
+        return "adminPage";
     }
 
 

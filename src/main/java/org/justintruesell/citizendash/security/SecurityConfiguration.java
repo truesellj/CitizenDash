@@ -45,7 +45,7 @@ public class SecurityConfiguration {
                         (auth) -> auth
                                 .requestMatchers("/", "/login*",
                                         "/css/*", "/js/*", "/sign-up", "/signup-process","/static/*","index.css","Tr*","/logout","game*").permitAll()
-                                .requestMatchers("/index","/home").hasAnyRole("USER", "ADMIN")
+                                .requestMatchers("/index","/home","/adminPage").hasAnyRole("USER", "ADMIN")
                                 .anyRequest().authenticated()
                 )
 

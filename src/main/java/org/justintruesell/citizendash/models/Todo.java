@@ -18,6 +18,7 @@ public class Todo {
     @Column(unique = true)
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    //@OneToOne(mappedBy="user")
     private String owner;
 
     private String title;

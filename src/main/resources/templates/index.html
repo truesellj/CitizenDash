@@ -20,7 +20,7 @@
             </ul>
             </li>
         </ul>
-    </div><div class="menuTitle"><h1>Citizen Dash</h1></div><div class="menuItem"><a href="#">Settings</a></div><div class="menuItem menuEdgeRight"><a href="javascript: document.logMeOut.submit()">Sign-Out</a></div></div>
+    </div><div class="menuTitle"><h1>Citizen Dash</h1></div><div class="menuItem"><a href="/viewAdminPage">Settings</a></div><div class="menuItem menuEdgeRight"><a href="javascript: document.logMeOut.submit()">Sign-Out</a></div></div>
     <div id="cardContainer">
         <div class="cardAdd">
             <select id="userChoice">
@@ -48,12 +48,23 @@
         <div id="todo" class="cardAdd hidden">
             <div class="close" onclick="deleteCheck(this)">X</div>
             <ul class="todoList"></ul>
-            <form onsubmit="addToList(this.parentElement);return false">
-                Add a todo:<input class="todoList" type="text">
-                <input type="submit" value="Add to list">
+            <!--
+            <form class="hidden" th:action="@{/save}" th:method=post" th:object="${todoDTO}">
+                <p hidden th:value="${#authentication.getName()}" th:field="*{owner}"></p>
+                <p hidden th:value="${}" th:field="*{title}"></p>
+                <input th:type="text" th:field="*{itemOne}">
+                <input th:type="text" th:field="*{itemTwo}">
+                <input th:type="text" th:field="*{itemThree}">
+                <input th:type="submit" th:text="Submit list">
             </form>
+            -->
+            <form class="" onsubmit="addToList(this.parentElement);return false">
+                Add a todo:<input class="todoList" type="text">
+                <input type="submit" value="Complete List">
+            </form>
+            <a th:href="@{/showUserTodos}">Edit in To&middot;Do Dashboard</a>
         </div>
-        <div id ="tracker" class="cardAdd hidden">
+        <div id="tracker" class="cardAdd hidden">
             <div class="close" onclick="deleteCheck(this)">X</div>
             <select><option value="" disabled selected hidden>Brand</option></select>
             <select><option value="" disabled selected hidden>Size</option></select>
