@@ -2,6 +2,7 @@ package org.justintruesell.citizendash.controllers;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.justintruesell.citizendash.dto.UserDTO;
+import org.justintruesell.citizendash.models.User;
 import org.justintruesell.citizendash.services.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
@@ -27,6 +28,7 @@ public class UserController {
         this.userDetailsService = userDetailsService;
     }
 
+    //when user taps root, it will send them to the login page
     @GetMapping("/")
     private String redirectToLogin()
     {
@@ -74,9 +76,40 @@ public class UserController {
     public String getAdminPage(Model model){
 
         model.addAttribute("allUsers", userDetailsService.getAllUsers());
+        model.addAttribute("user", new User());
         log.info("Admin page displayed");
-        return "adminPage";
+        return "/adminPage";
     }
+    /**
+                 _           _         _____
+        /\      | |         (_)       |  __ \
+       /  \   __| |_ __ ___  _ _ __   | |__) |_ _  __ _  ___
+      / /\ \ / _` | '_ ` _ \| | '_ \  |  ___/ _` |/ _` |/ _ \
+     / ____ \ (_| | | | | | | | | | | | |  | (_| | (_| |  __/
+    /_/    \_\__,_|_| |_| |_|_|_| |_| |_|   \__,_|\__, |\___|
+                                                  __/ |
+                                                  |___/
+ */
+    @PostMapping("/addNewUser")
+    public String addNewUser(@ModelAttribute("user")User user){
+        userDetailsService.saveUser(user);
+        return "redirect:/viewAdminPage";
+    }
+    @GetMapping("/delete")
+    public String delete(@RequestParam("userId") Long id){
+        //remove selected employee
+        userDetailsService.deleteUserById(id);
+        return "redirect:/viewAdminPage";
+    }
+/**
+ *
+ ______           _
+ |  ____|         | |
+ | |__   _ __   __| |
+ |  __| | '_ \ / _` |
+ | |____| | | | (_| |
+ |______|_| |_|\__,_|*/
+
 
 
     /**

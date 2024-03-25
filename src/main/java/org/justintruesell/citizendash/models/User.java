@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Collection;
 import java.util.Date;
@@ -23,6 +24,7 @@ public class User {
     private String email;
     private String address;
     private String phone;
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date dob;
     private String password;
 

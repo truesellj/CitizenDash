@@ -1,7 +1,6 @@
 package org.justintruesell.citizendash.services;
 
 
-import jakarta.persistence.Basic;
 import lombok.extern.slf4j.Slf4j;
 import org.justintruesell.citizendash.models.Todo;
 import org.justintruesell.citizendash.repositories.TodoRepository;
@@ -9,8 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Slf4j
@@ -33,4 +32,10 @@ public class TodoServiceImpl implements TodoService{
     @Transactional
     public Todo findByTitle(String title){return todoRepository.findByTitle(title);}
     public Todo save(Todo todo){return todoRepository.save(todo);}
+
+    public Optional<Todo> findWithId(Long id){
+        Optional<Todo> todo = todoRepository.findById(id);
+        return todo;
+    }
+
 }

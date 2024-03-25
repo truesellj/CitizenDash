@@ -21,16 +21,8 @@
             </li>
         </ul>
     </div><div class="menuTitle"><h1>Citizen Dash</h1></div><div class="menuItem"><a href="/viewAdminPage">Settings</a></div><div class="menuItem menuEdgeRight"><a href="javascript: document.logMeOut.submit()">Sign-Out</a></div></div>
-    <div id="cardContainer">
-        <div class="cardAdd">
-            <select id="userChoice">
-                <option value="1">Price Tracker</option>
-                <option value="2">To-Do List</option>
-                <option value="3">Search</option>
-            </select>
-            <div id="addButton" onclick="listOrTracker()">+</div>
-        </div>
 
+    <div id="cardContainer">
         <!-- *********************************** -->
         <div th:each="aList: ${existingLists}" class="cardAdd todo">
             <div class="close" onclick="deleteCheck(this)">X</div>
@@ -40,8 +32,19 @@
                 <li th:text="${aList.getItemTwo()}"></li>
                 <li th:text="${aList.getItemThree()}"></li>
             </ul>
+            <a style="color:black" th:href="@{/showUserTodos}">Edit in To&middot;Do Dashboard</a>
         </div>
         <!-- *********************************** -->
+        <div class="cardAdd">
+            <select id="userChoice">
+                <option value="1">Price Tracker</option>
+                <option value="2">To-Do List</option>
+                <option value="3">Search</option>
+            </select>
+            <div id="addButton" onclick="listOrTracker()">+</div>
+        </div>
+
+
 
         <!-- vvvvv Hidden card elements to copy w/ JavaScript vvvvvv -->
 
@@ -62,7 +65,7 @@
                 Add a todo:<input class="todoList" type="text">
                 <input type="submit" value="Complete List">
             </form>
-            <a th:href="@{/showUserTodos}">Edit in To&middot;Do Dashboard</a>
+            <a style="color:black" th:href="@{/showUserTodos}">Edit in To&middot;Do Dashboard</a>
         </div>
         <div id="tracker" class="cardAdd hidden">
             <div class="close" onclick="deleteCheck(this)">X</div>

@@ -29,9 +29,23 @@
             <td th:text="${user.getUserName()}"></td>
             <td th:text="${user.getEmail()}"></td>
             <td th:text="${user.getId()}"></td>
+            <td>
+                <a th:href="@{/delete(userId=${user.id})}" class="btn btn-danger btn-sm" onclick="if (!(confirm('This employee will be deleted permanently if you proceed. Are you sure?'))) return false">Remove User</a>
+            </td>
         </tr>
         </tbody>
     </table>
+    <form action="#" th:action="@{/addNewUser}" th:obect="${user}" method="POST">
+        <input type="text" th:field="*{user.firstName}" class="form-control mb-4 w-25" placeholder="First Name">
+        <input type="text" th:field="*{user.lastName}" class="form-control mb-4 w-25" placeholder="Last Name">
+        <input type="text" th:field="*{user.userName}" class="form-control mb-4 w-25" placeholder="Username">
+        <input type="text" th:field="*{user.email}" class="form-control mb-4 w-25" placeholder="Email">
+        <input type="text" th:field="*{user.address}" class="form-control mb-4 w-25" placeholder="Address">
+        <input type="text" th:field="*{user.phone}" class="form-control mb-4 w-25" placeholder="Phone Number(##########)">
+        <input type="date" th:field="*{user.dob}" class="form-control mb-4 w-25" placeholder="Date of Birth">
+        <input type="text" th:field="*{user.password}" class="form-control mb-4 w-25" placeholder="Password">
+        <button type="submit" class="btn btn-info col-2">Create User</button>
+    </form>
 </div>
 </body>
 </html>
