@@ -11,7 +11,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap" rel="stylesheet"/>
     <script src="script.js"></script>
 </head>
-<body>
+<body><div id="globalBG">
+<!-- **************** Main Dash Menu ******************* -->
     <div class="menu"><div class="menuItem menuEdgeLeft"><a href="#">Home</a></div><div class="menuItem">
         <ul style="padding: 0;">
             <li id="mDropDownHeader">Edit A List
@@ -21,9 +22,9 @@
             </li>
         </ul>
     </div><div class="menuTitle"><h1>Citizen Dash</h1></div><div class="menuItem"><a href="/viewAdminPage">Settings</a></div><div class="menuItem menuEdgeRight"><a href="javascript: document.logMeOut.submit()">Sign-Out</a></div></div>
-
+<!-- *************** Main Dash Menu END ***************** -->
     <div id="cardContainer">
-        <!-- *********************************** -->
+        <!-- ****************Populating user's existing lists******************* -->
         <div th:each="aList: ${existingLists}" class="cardAdd todo">
             <div class="close" onclick="deleteCheck(this)">X</div>
             <h3 th:text="${aList.getTitle()}"></h3>
@@ -34,7 +35,9 @@
             </ul>
             <a style="color:black" th:href="@{/showUserTodos}">Edit in To&middot;Do Dashboard</a>
         </div>
-        <!-- *********************************** -->
+        <!-- **************** Populating user's existing lists END ******************* -->
+
+        <!-- vvvvv 'Add New' Card vvvvvv -->
         <div class="cardAdd">
             <select id="userChoice">
                 <option value="1">Price Tracker</option>
@@ -43,6 +46,7 @@
             </select>
             <div id="addButton" onclick="listOrTracker()">+</div>
         </div>
+        <!-- ^^^^^ End 'Add New' Card ^^^^^ -->
 
 
 
@@ -51,16 +55,6 @@
         <div id="todo" class="cardAdd hidden">
             <div class="close" onclick="deleteCheck(this)">X</div>
             <ul class="todoList"></ul>
-            <!--
-            <form class="hidden" th:action="@{/save}" th:method=post" th:object="${todoDTO}">
-                <p hidden th:value="${#authentication.getName()}" th:field="*{owner}"></p>
-                <p hidden th:value="${}" th:field="*{title}"></p>
-                <input th:type="text" th:field="*{itemOne}">
-                <input th:type="text" th:field="*{itemTwo}">
-                <input th:type="text" th:field="*{itemThree}">
-                <input th:type="submit" th:text="Submit list">
-            </form>
-            -->
             <form class="" onsubmit="addToList(this.parentElement);return false">
                 Add a todo:<input class="todoList" type="text">
                 <input type="submit" value="Complete List">
@@ -75,11 +69,13 @@
         </div>
         <!-- ^^^^^ End of hiddent card elements ^^^^^ -->
     </div>
-    <!-- VVVVV Form to logout VVVVV -->
+    <!-- VVVVV Hidden Form to logout VVVVV -->
+    <!-- Assists the user in logging out -->
     <form name="logMeOut" th:action="@{/logout}" method="post" th:hidden="true">
         <input hidden type="submit" value="logout" />
     </form>
     <!-- ^^^^^ End of logout form ^^^^^ -->
+</div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -69,6 +69,8 @@ public class MainController {
      * @param model
      * @return
      */
+
+    //Show a list of todos for current user
     @RequestMapping("/showUserTodos")
     public String showTodoDashboard(Model model) {
         //create todo for updating in method outside method
@@ -102,6 +104,12 @@ public class MainController {
         model.addAttribute("todo", todo);
 
         return "addNewTodo";
+    }
+    @GetMapping("/deleteTodoOutside")
+    public String deleteTodoOutside(@RequestParam("todoId")Long id){
+
+        todoServiceImpl.deleteById(id);
+        return "redirect:showUserTodos";
     }
 /**
  *

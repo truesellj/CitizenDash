@@ -19,4 +19,12 @@ public interface TodoRepository extends JpaRepository<Todo, Long> {
 
     public List<Todo> findByOwner(String email);
     public Todo findByTitle(String title);
+    @Query("SELECT MAX(t.id) FROM Todo t")
+    public Long findLargestID();
+    @Query("SELECT MIN(t.id) FROM Todo t")
+    public Long findSmallestID();
+    @Query("SELECT t.title FROM Todo t WHERE t.itemOne = ?1 OR t.itemTwo = ?1 OR t.itemThree = ?1")
+    public String findTitleByListItem(String listItem);
+
+
 }

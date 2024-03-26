@@ -6,6 +6,7 @@
     color:black;
 }
 body{
+
 }
 #cardContainer{
     background-image: url("TreeBase.jpg");
@@ -49,6 +50,10 @@ body{
 }
 .form-signin{
     background-color:rgba(78,91,49,.95);
+}
+#globalBG{
+    background-image: linear-gradient(#32481b, white);
+    height:90vh
 }
 h1{
     font-family: 'Bungee Spice';
@@ -105,10 +110,10 @@ h1{
 
 }
 .menuEdgeLeft{
-    border-radius: 0 0 0 30px;
+    border-radius: 30px 0 0 30px;
 }
 .menuEdgeRight{
-    border-radius: 0 0 30px 0;
+    border-radius: 0 30px 30px 0;
 }
 #menu ul {
     background-color: rgba(78, 91, 49, .95);

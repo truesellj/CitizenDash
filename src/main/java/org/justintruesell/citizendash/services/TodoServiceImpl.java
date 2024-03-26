@@ -25,7 +25,6 @@ public class TodoServiceImpl implements TodoService{
     //gets full list of todoLists stored in database by current LOGGEDIN user
     public List<Todo> loadByOwner(String email){
         List<Todo> currentTodos = todoRepository.findByOwner(email);
-        System.out.println(currentTodos);
         return currentTodos;
     };
 
@@ -36,6 +35,9 @@ public class TodoServiceImpl implements TodoService{
     public Optional<Todo> findWithId(Long id){
         Optional<Todo> todo = todoRepository.findById(id);
         return todo;
+    }
+    public void deleteById(Long id){
+        todoRepository.deleteById(id);
     }
 
 }

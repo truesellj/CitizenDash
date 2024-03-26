@@ -34,6 +34,7 @@
             </td>
         </tr>
         </tbody>
+        <!-- Add a new user to the database -->
     </table>
     <form action="#" th:action="@{/addNewUser}" th:obect="${user}" method="POST">
         <input type="text" th:field="*{user.firstName}" class="form-control mb-4 w-25" placeholder="First Name">

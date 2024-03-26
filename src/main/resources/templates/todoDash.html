@@ -30,6 +30,7 @@
         <!--update button -->
         <!--Set the id to be passed to the id of the todo's update button we clicked. -->
         <td><a th:href="@{/updateTodoOutside(todoId=${item.id})}" class="btn btn-info btn-sm">Add/Update</a></td>
+        <td><a th:href="@{/deleteTodoOutside(todoId=${item.id})}" class="btn btn-danger">DELETE</a></td>
     </tr>
     </tbody>
 </table>
